@@ -100,7 +100,7 @@
 	function clearPlaceholder(event, value) {
 		var input = this,
 		    $input = $(input);
-		if (input.value == $input.attr('placeholder') && $input.hasClass('placeholder')) {
+		if (input.value.replace(/[\t\r\n]*/g, '') == $input.attr('placeholder').replace(/[\t\r\n]*/g, '') && $input.hasClass('placeholder')) {
 			if ($input.data('placeholder-password')) {
 				$input = $input.hide().next().show().attr('id', $input.removeAttr('id').data('placeholder-id'));
 				// If `clearPlaceholder` was called from `$.valHooks.input.set`
